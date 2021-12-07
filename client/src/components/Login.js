@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-function Login({ setGet}) {
+function Login({ setGet }) {
   const history = useHistory();
   const [login, setLogin] = useState({
     group: "",
@@ -27,13 +27,13 @@ function Login({ setGet}) {
         group: login.group,
         password: login.password,
       }),
-      credentials: "include",
+      credentials:"include",
     });
     const res = await data.json();
     if (!res.length) {
       return false;
     }
-    setGet(res[0]);
+    setGet(res[0]._id);
     history.push(`/${res[0]._id}/challenges`);
     setLogin({
       group: "",
