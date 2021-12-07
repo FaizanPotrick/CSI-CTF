@@ -1,6 +1,7 @@
 const express = require("express");
 const User = require("../model/userSchema");
 const Data = require("../model/DataSchema");
+const answerData = require("../model/answerSchema");
 const router = express.Router();
 
 router.post("/register", async (req, res) => {
@@ -75,8 +76,11 @@ router.post("/solution", async (req, res) => {
   if (!data[0].solution.length) {
     return res.json({ error: "Not Found" });
   }
-    res.json(data[0].solution[0]);
- const update = await Data.findOneAndUpdate({_id : data[0].solution[0]._id},{answer : "my"});
- console.log(update);
+  res.json(data[0].solution[0]);
+  const update = await Data.findOneAndUpdate(
+    { _id: data[0].solution[0]._id },
+    { answer: "my" }
+  );
+  console.log(update);
 });
 module.exports = router;
