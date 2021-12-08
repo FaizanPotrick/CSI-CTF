@@ -1,32 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 // import Instruction from "./Instruction";
 import { useHistory } from "react-router-dom";
-import Card from "./Card";
-function Challenges({ get }) {
-  const [state, setstate] = useState();
-  useEffect(() => {
-    const id = async () => {
-      const data = await fetch("/get", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          id: get,
-        }),
-        credentials: "include",
-      });
-      const res = await data.json();
-      if (!res.length) {
-        return false;
-      }
-      setstate(res[0]);
-    };
-    id();
-  }, [get]);
+function Challenges({ get, showAlert }) {
+  const [answer, setAnswer] = useState("");
+
+  const onChange = (e) => {setAnswer(e.target.value)}
+  const update = async (e) => {
+    e.preventDefault();
+    const data = await fetch("/submit", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: get,
+        answer: answer
+      }),
+      credentials: "include",
+    });
+    const res = await data.json();
+    showAlert(res);
+    setAnswer("");
+  };
   const history = useHistory();
-  console.log(state);
   return (
     <div
       className="d-flex flex-column"
@@ -37,13 +34,35 @@ function Challenges({ get }) {
           className="btn btn-primary text-center m-4 "
           onClick={() => {
             sessionStorage.removeItem("data");
-            history.push("/login");
+            history.push("/");
           }}
         >
           Log out
         </button>
       </div>
-      <div className="row d-flex justify-content-center"></div>
+      <div className="row d-flex justify-content-center">
+        <form className="row g-3" onSubmit={update}>
+          <div className="col-auto">
+            <label htmlFor="inputPassword2" className="visually-hidden">
+              Password
+            </label>
+            <input
+              type="password"
+              className="form-control"
+              id="inputPassword2"
+              name="answer"
+              value={answer}
+              placeholder="Password"
+              onChange={onChange}
+            />
+          </div>
+          <div className="col-auto">
+            <button type="submit" className="btn btn-primary mb-3">
+              Confirm identity
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

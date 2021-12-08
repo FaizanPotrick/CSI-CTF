@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const moment = require("moment");
 const userData = new mongoose.Schema({
   id: {
     type: String,
@@ -7,11 +7,10 @@ const userData = new mongoose.Schema({
   },
   solution: [{
     answer: {
-      type: String,
-      required: true,
+      type: String
     },
     time: {
-      type: String,
+      type: String
     },
   }],
 });

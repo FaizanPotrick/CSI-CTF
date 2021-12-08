@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-function Login({ setGet }) {
+function Login({ setGet,showAlert }) {
   const history = useHistory();
   const [login, setLogin] = useState({
     group: "",
@@ -30,11 +30,12 @@ function Login({ setGet }) {
       credentials:"include",
     });
     const res = await data.json();
-    if (!res.length) {
-      return false;
+    if(res.length){
+      return showAlert(res);
     }
-    setGet(res[0]._id);
-    history.push(`/${res[0]._id}/challenges`);
+    setGet(res.data[0]._id);
+    showAlert(res.alert)
+    history.push(`/${res.data[0]._id}/challenges`);
     setLogin({
       group: "",
       password: "",
@@ -48,7 +49,7 @@ function Login({ setGet }) {
       <button
         className="btn text-muted text-center m-4 fixed-top p-0"
         onClick={() => {
-          history.goBack();
+          history.push("/");
         }}
       >
         <svg
@@ -70,6 +71,7 @@ function Login({ setGet }) {
         className="border border-muted p-5 rounded shadow"
         style={{ width: "500px" }}
       >
+        <h1 className="text-center">Login</h1>
         <div className="form-group mb-2">
           <label htmlFor="name">Group Name</label>
 

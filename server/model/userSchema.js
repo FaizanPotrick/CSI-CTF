@@ -5,6 +5,19 @@ const userFormat = new mongoose.Schema({
     type: String,
     required: true,
   },
+  firstMember:{
+    type:String,
+    required:true
+  },
+  secondMember:{
+    type:String
+  },
+  thirdMember:{
+    type:String
+  },
+  fourthMember:{
+    type:String
+  },
   password: {
     type: String,
     required: true,
