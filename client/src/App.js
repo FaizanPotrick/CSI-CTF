@@ -3,7 +3,6 @@ import Challenges from "./components/Challenges";
 import { useState, useEffect } from "react";
 import Home from "./components/Home";
 import Login from "./components/Login";
-import Register from "./components/Register";
 import Alert from "./components/Alert";
 
 function App() {
@@ -13,29 +12,12 @@ function App() {
   useEffect(() => {
     sessionStorage.setItem("data", JSON.stringify(get));
   }, [get]);
-  const [register, setRegister] = useState({
-    group: "",
-    firstMember: "",
-    secondMember: "",
-    thirdMember: "",
-    fourthMember: "",
-    password: "",
-  });
-  const onChange = (e) => {
-    const { value, name } = e.target;
-    setRegister(() => {
-      return {
-        ...register,
-        [name]: value,
-      };
-    });
-  };
+
   const [alert, setAlert] = useState({
     color: null,
     message: null,
   });
   const showAlert = (res) => {
-    // console.log(res.split(":")[0]);
     const show = res.split(":");
     setAlert({
       color: show[0],
@@ -50,23 +32,10 @@ function App() {
   };
   return (
     <Router>
-      <Alert color={alert.color} message={alert.message} />
+        <Alert color={alert.color} message={alert.message} />
       <Switch>
         <Route exact path="/">
           <Home />
-        </Route>
-        <Route exact path="/register">
-          <Register
-            setRegister={setRegister}
-            onChange={onChange}
-            group={register.group}
-            firstMember={register.firstMember}
-            secondMember={register.secondMember}
-            thirdMember={register.thirdMember}
-            fourthMember={register.fourthMember}
-            password={register.password}
-            showAlert={showAlert}
-          />
         </Route>
         <Route exact path="/login">
           <Login setGet={setGet} showAlert={showAlert} />

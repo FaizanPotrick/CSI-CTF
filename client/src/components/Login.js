@@ -17,6 +17,8 @@ function Login({ setGet,showAlert }) {
   };
   const getData = async (e) => {
     e.preventDefault();
+    const groupTrim = login.group.trim();
+    const passwordTrim = login.password.trim();
     const data = await fetch("/login", {
       method: "POST",
       headers: {
@@ -24,8 +26,8 @@ function Login({ setGet,showAlert }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        group: login.group,
-        password: login.password,
+        group: groupTrim,
+        password: passwordTrim,
       }),
       credentials:"include",
     });
@@ -43,11 +45,11 @@ function Login({ setGet,showAlert }) {
   };
   return (
     <div
-      className="d-flex justify-content-center align-items-center"
+      className="d-flex justify-content-center align-items-center bg-dark"
       style={{ height: "100vh" }}
     >
       <button
-        className="btn text-muted text-center m-4 fixed-top p-0"
+        className="btn text-light text-center m-4 fixed-top p-0"
         onClick={() => {
           history.push("/");
         }}
@@ -68,12 +70,13 @@ function Login({ setGet,showAlert }) {
       </button>
       <form
         onSubmit={getData}
-        className="border border-muted p-5 rounded shadow"
-        style={{ width: "500px" }}
+        className=" p-5 rounded shadow"
+        style={{ width: "500px", background:"rgb(44, 160, 106)",borderRadius:"300px" }}
       >
-        <h1 className="text-center">Login</h1>
+        <h1 className="text-center text-light fw-bold">Login</h1>
+        <p class="text-muted text-center">Please enter your Team Name and password!</p>
         <div className="form-group mb-2">
-          <label htmlFor="name">Group Name</label>
+          <label htmlFor="name" className="text-dark mb-2">Group Name</label>
 
           <input
             type="text"
@@ -87,7 +90,7 @@ function Login({ setGet,showAlert }) {
         </div>
 
         <div className="form-group ">
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password" className="text-dark mb-2">Password</label>
 
           <input
             type="password"
@@ -105,7 +108,7 @@ function Login({ setGet,showAlert }) {
             className="btn btn-primary text-center mt-4"
             disabled={!(login.group || login.password)}
           >
-            Submit
+            Login
           </button>
         </div>
       </form>

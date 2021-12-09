@@ -13,6 +13,6 @@ const userData = new mongoose.Schema({
       type: String
     },
   }],
-});
+},{timestamps:true});
 const Data = mongoose.model("DATA", userData);
 module.exports = Data;

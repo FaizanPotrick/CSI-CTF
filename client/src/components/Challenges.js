@@ -1,12 +1,33 @@
 import React, { useState } from "react";
-// import Instruction from "./Instruction";
+import CryptoJS from "crypto-js";
 import { useHistory } from "react-router-dom";
 function Challenges({ get, showAlert }) {
   const [answer, setAnswer] = useState("");
 
-  const onChange = (e) => {setAnswer(e.target.value)}
+  const onChange = (e) => {
+    setAnswer(e.target.value);
+  };
   const update = async (e) => {
     e.preventDefault();
+    const answerTrim = answer.trim();
+    const key = CryptoJS.enc.Hex.parse("000102030405060708090a0b0c0d0e0f");
+    const iv = CryptoJS.enc.Hex.parse("101112131415161718191a1b1c1d1e1f");
+    const mode = CryptoJS.mode.CFB;
+    const padding = CryptoJS.pad.AnsiX923;
+    const encrypted = CryptoJS.AES.encrypt(answerTrim, key, { iv:iv, mode:mode,padding:padding }).toString();
+    console.log(encrypted);
+    const array = [
+      "YZKOE+HVA26QDu4RjpSSnw==",
+      "ZpCcdOHVA26QDu4RjpSSng==",
+      "cJ+dB4m8c26QDu4RjpSSmg==",
+      "ZJKOGpK9ah6QDu4RjpSSmw==",
+    ];
+    const filter = array.filter((e) => {
+      return e === encrypted;
+    });
+    if (!filter.length) {
+      return [showAlert("danger:Incorrect"),setAnswer("")];
+    }
     const data = await fetch("/submit", {
       method: "POST",
       headers: {
@@ -15,7 +36,7 @@ function Challenges({ get, showAlert }) {
       },
       body: JSON.stringify({
         id: get,
-        answer: answer
+        answer: answerTrim
       }),
       credentials: "include",
     });
@@ -47,7 +68,7 @@ function Challenges({ get, showAlert }) {
               Password
             </label>
             <input
-              type="password"
+              type="text"
               className="form-control"
               id="inputPassword2"
               name="answer"

@@ -3,7 +3,8 @@ import React from "react";
 function Alert({message,color}) {
   return (
     <div>
-      <div className={`alert alert-${color} fixed-top`} role="alert">
+      <div className={`alert alert-${color} position-absolute start-50 translate-middle`} role="alert"
+       style={{width:"fit-content"}}>
        {message}
       </div>
     </div>

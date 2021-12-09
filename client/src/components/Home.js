@@ -3,9 +3,6 @@ import { Link } from "react-router-dom";
 function Home() {
   return (
       <div className="jumbotron d-flex flex-column align-items-center justify-content-center" style={{ height: "100vh" }}>
-        <Link className="btn btn-primary btn-lg" to="/register" role="button">
-          Register
-        </Link>
         <Link className="btn btn-primary btn-lg" to="/login" role="button">
           Login
         </Link>

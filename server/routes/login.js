@@ -2,29 +2,33 @@ const express = require("express");
 const User = require("../model/userSchema");
 const Data = require("../model/DataSchema");
 const router = express.Router();
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 router.post("/register", async (req, res) => {
   const {
     group,
+    gmail,
     firstMember,
     secondMember,
     thirdMember,
-    fourthMember,
     password,
   } = req.body;
   try {
+  const passwordHash = bcrypt.hashSync(password, saltRounds);
     const check = await User.find({ group: group });
     if (check.length) {
       return res.json("danger:This username has already been taken, please enter new username");
     }
     const response = await new User({
       group,
+      gmail,
       firstMember,
       secondMember,
       thirdMember,
-      fourthMember,
-      password,
+      password : passwordHash,
     });
+    
     await response.save();
     res.json("success:This data has been stored successfully");
   } catch (error) {
@@ -34,9 +38,13 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   const { group, password } = req.body;
   try {
-    const data = await User.find({ group: group, password: password });
+    const data = await User.find({ group: group });
     if (!data.length) {
-      return res.json("danger:The username and password is incorrect please again");
+      return res.json("danger:The username is incorrect please try again");
+    }
+    const encrypt = bcrypt.compareSync(password, data[0].password);
+    if(!encrypt){
+      return res.json("danger:The password is incorrect please try again");
     }
     const id = data[0]._id;
     const check = await Data.find({ id: id });
@@ -50,29 +58,13 @@ router.post("/login", async (req, res) => {
     return res.send(error);
   }
 });
-
-// apne kaam a client ke nahi
-// router.post("/get", async (req, res) => {
-//   const { id } = req.body;
-//   const data = await Data.find({ id: id });
-//   if (!data.length) {
-//     return res.json({ error: "Not Found" });
-//   }
-//   res.json(data);
-// });
-
-// router.post("/solution", async (req, res) => {
-//   const { id, answer } = req.body;
-//   console.log(req.body);
-//   try {
-//     const currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
-//    await Data.updateOne(
-//       { id: id, solution: {$elemMatch:{answer : answer}}},
-//       { $set: { "solution.$.time":  currentTime} }
-//     );
-//     console.log("got");
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
+router.get("/", async (req, res) => {
+  try {
+    const user = await User.find();
+    const data = await Data.find();
+    res.json({user : user,data : data});
+  } catch (error) {
+    return res.send(error);
+  }
+});
 module.exports = router;
