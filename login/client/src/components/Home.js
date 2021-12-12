@@ -4,7 +4,7 @@ function Home() {
   return (
       <div
         className="jumbotron d-flex flex-column align-items-center justify-content-center"
-        style={{ height: "100vh" }}
+        style={{ height: "92vh" }}
       >
         <h1 className="display-4">Hello, world!</h1>
         <p className="lead">

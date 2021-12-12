@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-function Login({ setGet,showAlert,log }) {
+function Login({ setGet, showAlert, log }) {
   const history = useHistory();
   const [login, setLogin] = useState({
     group: "",
@@ -29,10 +29,10 @@ function Login({ setGet,showAlert,log }) {
         group: groupTrim,
         password: passwordTrim,
       }),
-      credentials:"include",
+      credentials: "include",
     });
     const res = await data.json();
-    if(res.length){
+    if (res.length) {
       return showAlert(res);
     }
     setGet(res.data[0]._id);
@@ -46,19 +46,20 @@ function Login({ setGet,showAlert,log }) {
   };
   return (
     <div
-      className="d-flex justify-content-center align-items-center bg-dark"
-      style={{ height: "100vh" }}
+      className="d-flex justify-content-center align-items-center"
+      style={{ height: "92vh" }}
     >
       <button
-        className="btn text-light text-center m-4  p-0"
+        className="btn text-dark text-center m-4  p-0"
+        style={{ position: "fixed", top: "8vh", left: "1vw" }}
         onClick={() => {
           history.push("/");
         }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="30"
-          height="30"
+          width="40"
+          height="40"
           fill="currentColor"
           className="bi bi-arrow-left"
           viewBox="0 0 16 16"
@@ -69,51 +70,76 @@ function Login({ setGet,showAlert,log }) {
           />
         </svg>
       </button>
-      <form
-        onSubmit={getData}
-        className=" p-5 rounded shadow"
-        style={{ width: "500px", background:"rgb(44, 160, 106)",borderRadius:"300px" }}
-      >
-        <h1 className="text-center text-light fw-bold">Login</h1>
-        <p class="text-muted text-center">Please enter your Team Name and password!</p>
-        <div className="form-group mb-2">
-          <label htmlFor="name" className="text-dark mb-2">Group Name</label>
-
-          <input
-            type="text"
-            className="form-control"
-            id="name"
-            value={login.group}
-            name="group"
-            style={{ width: "100%" }}
-            onChange={onChange}
-            required
-          />
-        </div>
-
-        <div className="form-group ">
-          <label htmlFor="password" className="text-dark mb-2">Password</label>
-
-          <input
-            type="password"
-            className="form-control"
-            id="password"
-            value={login.password}
-            name="password"
-            style={{ width: "100%" }}
-            onChange={onChange}
-            required
-          />
-        </div>
-        <div className="text-center">
-          <button
-            type="submit"
-            className="btn btn-primary text-center mt-4"
+      <div className="container bg-dark " style={{ borderRadius: "40px" }}>
+        <div className="row">
+          <div
+            className="col-md-6 col-sm-6 col-6 d-flex justify-content-center align-items-center m-0 p-0"
           >
-            Login
-          </button>
+            <img
+              className="img-fluid m-0 p-0"
+              alt="..."
+              src="1.png"
+            />
+          </div>
+          <div className="col-md-6 col-sm-6 col-6 m-0 p-0">
+            <form onSubmit={getData} className=" p-5">
+              <h1 className="text-center text-light fw-bold mb-4">LOGIN</h1>
+              <p className="text-muted text-center mb-3 ">
+                Please Enter your Team Name and password!
+              </p>
+              <div className="form-floating mb-3">
+                <input
+                  type="text"
+                  className="form-control text-light"
+                  id="name"
+                  value={login.group}
+                  name="group"
+                  onChange={onChange}
+                  style={{border: "none",
+                    borderRadius: "0",background:"transparent",
+                    boxShadow: "inset 0 -1px 0 #2196f3",
+                    borderBottomColor: "primary"}}
+                  required
+                  placeholder="Team Name"
+                />
+                <label htmlFor="name" className="text-light mb-2">
+                  Team Name
+                </label>
+              </div>
+
+              <div className="form-floating">
+                <input
+                  type="password"
+                  className="form-control text-light"
+                  id="password"
+                  value={login.password}
+                  name="password"
+                  placeholder="Password"
+                  onChange={onChange}
+                  style={{border: "none",
+                    borderRadius: "0",background:"transparent",
+                    boxShadow: "inset 0 -1px 0 #2196f3",
+                    borderBottomColor: "primary"}}
+                  required
+                />
+                <label htmlFor="password" className="text-light mb-2">
+                  Password
+                </label>
+              </div>
+              <div className="text-center">
+                <button
+                  type="submit"
+                  className="btn btn-primary text-center mt-5  btn-lg"
+                  style={{borderRadius: "15px"}}
+                >
+                  Login
+                </button>
+              </div>
+            </form>
+            
+          </div>
         </div>
-      </form>
+      </div>
     </div>
   );
 }

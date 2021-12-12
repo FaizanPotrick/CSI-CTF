@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CryptoJS from "crypto-js";
-import {  Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 function Challenges({ get, showAlert }) {
   const [answer, setAnswer] = useState("");
 
@@ -51,45 +51,103 @@ function Challenges({ get, showAlert }) {
   return (
     <div
       className="d-flex flex-column"
-      style={{ overflowX: "hidden", height: "100vh" }}
+      style={{ overflowX: "hidden", height: "92vh" }}
     >
-      <div className="d-flex flex-row justify-content-between">
-        
-      </div>
+      <div className="d-flex flex-row justify-content-between"></div>
       <div className="row d-flex justify-content-center">
-        <div>
-          <div class="card" style={{width: "18rem"}}>
-            <Link class="card-body" to={`/${get}/1`}>
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-            </Link>
-          </div>
-        </div>
         <form className="row g-3" onSubmit={update}>
           <div className="col-auto">
-            <label htmlFor="inputPassword2" className="visually-hidden">
-              Password
-            </label>
             <input
               type="text"
               className="form-control"
-              id="inputPassword2"
               name="answer"
               value={answer}
-              placeholder="Password"
+              placeholder="Enter the Flag"
               onChange={onChange}
               required
             />
           </div>
           <div className="col-auto">
             <button type="submit" className="btn btn-primary mb-3">
-              Confirm identity
+              Submit Flag
             </button>
           </div>
         </form>
+        <div className="row  container">
+          <div className="col-md-6 col-sm-6 col-12">
+          <Link
+            class="card m-0 p-0 text-decoration-none"
+            style={{
+              background: "#ad5389",
+              background: "-webkit-linear-gradient(to right, #3c1053, #ad5389)",
+              background: "linear-gradient(to right, #3c1053, #ad5389)",
+              borderRadius: "30px",
+              width: "35vw",
+            }}
+            to={`/${get}/1`}
+          >
+            <div className="row">
+              <div className="col-md-9 col-sm-9 col-9">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                </div>
+              </div>
+              <div className="col-md-3 col-sm-3 col-3">
+                <img
+                  src="https://images.unsplash.com/photo-1639196933420-0fad4a755157?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
+                  className="card-img-top h-100"
+                  alt="..."
+                  style={{
+                    clipPath: "polygon(0 0, 100% 0, 100% 100%, 31% 100%)",
+                    borderRadius: "0px 30px 30px 0px",
+                  }}
+                />
+              </div>
+            </div>
+          </Link>
+          </div>
+          <div className="col-md-6 col-sm-6 col-12">
+          <Link
+            class="card m-0 p-0 text-decoration-none"
+            style={{
+              background: "#ad5389",
+              background: "-webkit-linear-gradient(to right, #3c1053, #ad5389)",
+              background: "linear-gradient(to right, #3c1053, #ad5389)",
+              borderRadius: "30px",
+              width: "35vw",
+            }}
+            to={`/${get}/1`}
+          >
+            <div className="row">
+              <div className="col-md-9 col-sm-9 col-9">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                </div>
+              </div>
+              <div className="col-md-3 col-sm-3 col-3">
+                <img
+                  src="https://images.unsplash.com/photo-1639196933420-0fad4a755157?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
+                  className="card-img-top h-100"
+                  alt="..."
+                  style={{
+                    clipPath: "polygon(0 0, 100% 0, 100% 100%, 31% 100%)",
+                    borderRadius: "0px 30px 30px 0px",
+                  }}
+                />
+              </div>
+            </div>
+          </Link>
+          </div>
+         
+        </div>
       </div>
     </div>
   );

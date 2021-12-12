@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import Alert from "./components/Alert";
 import Challenge1 from "./components/Challenge1";
 import Navbar from "./components/Navbar";
+import Instruction from "./components/Instruction";
 
 function App() {
   const [get, setGet] = useState(() => {
@@ -40,7 +41,7 @@ function App() {
     switch (res) {
       case "logout":
         setDisplay({
-          login:"none",
+        login:"none",
         logout:"block"
         });
         break;
@@ -57,6 +58,7 @@ function App() {
   return (
     <Router>
       <Navbar login={display.login} logout={display.logout} log={log}/>
+      <Instruction/>
         <Alert color={alert.color} message={alert.message} />
       <Switch>
         <Route exact path="/">

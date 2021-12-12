@@ -7,9 +7,10 @@ function Admin() {
     get();
   }, []);
   const get = async () => {
-    const info = await fetch("/admin", {
+    const info = await fetch("/site-admin", {
       method: "GET",
       headers: {
+        'Accept': 'application/json',
         "Content-Type": "application/json",
       },
     });
