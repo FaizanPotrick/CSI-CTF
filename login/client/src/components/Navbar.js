@@ -1,6 +1,35 @@
-import React from "react";
-import { Link } from "react-router-dom";
-function Navbar({ login, logout, log }) {
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+function Navbar() {
+  const [display, setDisplay] = useState({
+    login: "none",
+    logout: "block",
+  });
+  const location = useLocation();
+  const pathname = location.pathname;
+  useEffect(() => {
+    switch (pathname) {
+      case "/login":
+        setDisplay({
+          login: "none",
+          logout: "none",
+        });
+        break;
+      case "/":
+        setDisplay({
+          login: "block",
+          logout: "none",
+        });
+        break;
+      default:
+        setDisplay({
+          login: "none",
+          logout: "block",
+        });
+        break;
+    }
+  }, [pathname]);
+
   return (
     <nav
       className="navbar navbar-expand-lg navbar-dark bg-dark justify-content-around"
@@ -35,18 +64,16 @@ function Navbar({ login, logout, log }) {
         </button>
         <div>
           <Link
-            className={`btn btn-primary text-center  btn-lg d-${login}`}
+            className={`btn btn-primary text-center  btn-lg d-${display.login}`}
             to="/login"
-            role="button"
           >
             Login
           </Link>
           <Link
-            className={`btn btn-primary btn-lg  text-center d-${logout}`}
+            className={`btn btn-primary btn-lg  text-center d-${display.logout}`}
             to={"/"}
             onClick={() => {
               sessionStorage.removeItem("data");
-              log("login");
             }}
           >
             Logout

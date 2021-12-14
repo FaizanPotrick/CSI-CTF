@@ -38,7 +38,6 @@ function Login({ setGet, showAlert, log }) {
     setGet(res.data[0]._id);
     showAlert(res.alert);
     history.push(`/${res.data[0]._id}/challenges`);
-    log("logout");
     setLogin({
       group: "",
       password: "",

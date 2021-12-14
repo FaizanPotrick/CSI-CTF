@@ -33,31 +33,9 @@ function App() {
       });
     }, 3000);
   };
-  const [display, setDisplay] = useState({
-    login:"block",
-    logout:"none"
-  });
-  const log = (res)=>{
-    switch (res) {
-      case "logout":
-        setDisplay({
-        login:"none",
-        logout:"block"
-        });
-        break;
-        case "login":
-        setDisplay({
-          login:"block",
-        logout:"none"
-        });
-        break;
-        default :
-        break;
-    }
-  };
   return (
     <Router>
-      <Navbar login={display.login} logout={display.logout} log={log}/>
+      <Navbar/>
       <Instruction/>
         <Alert color={alert.color} message={alert.message} />
       <Switch>
@@ -65,7 +43,7 @@ function App() {
           <Home />
         </Route>
         <Route exact path="/login">
-          <Login setGet={setGet} showAlert={showAlert} log={log} />
+          <Login setGet={setGet} showAlert={showAlert}/>
         </Route>
         <Route exact path={`/${get}/challenges`}>
           <Challenges get={get} showAlert={showAlert} />

@@ -1,9 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CryptoJS from "crypto-js";
 import { Link } from "react-router-dom";
 function Challenges({ get, showAlert }) {
   const [answer, setAnswer] = useState("");
-
+  const [disable, setDisable] = useState(() => {
+    const saved = sessionStorage.getItem("disarm");
+    if (saved) {
+      return JSON.parse(saved);
+    } else {
+      return [];
+    }
+  });
+  useEffect(() => {
+    sessionStorage.setItem("disarm", JSON.stringify(disable));
+    disable.map((e) => {
+      const id = document.getElementById(e);
+      const text = document.createElement("span");
+      text.setAttribute("className","badge badge-secondary text-success");
+      text.innerHTML = "new";
+      return id.append(text);
+    });
+  }, [disable]);
   const onChange = (e) => {
     setAnswer(e.target.value);
   };
@@ -45,6 +62,7 @@ function Challenges({ get, showAlert }) {
       credentials: "include",
     });
     const res = await data.json();
+    setDisable([...disable, encrypted]);
     showAlert(res);
     setAnswer("");
   };
@@ -75,78 +93,100 @@ function Challenges({ get, showAlert }) {
         </form>
         <div className="row  container">
           <div className="col-md-6 col-sm-6 col-12">
-          <Link
-            class="card m-0 p-0 text-decoration-none"
-            style={{
-              background: "#ad5389",
-              background: "-webkit-linear-gradient(to right, #3c1053, #ad5389)",
-              background: "linear-gradient(to right, #3c1053, #ad5389)",
-              borderRadius: "30px",
-              width: "35vw",
-            }}
-            to={`/${get}/1`}
-          >
-            <div className="row">
-              <div className="col-md-9 col-sm-9 col-9">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
+            <Link
+              className="card m-0 p-0 text-decoration-none"
+              style={{
+                background: "linear-gradient(to right, #3c1053, #ad5389)",
+                borderRadius: "30px",
+                width: "35vw",
+              }}
+              to={`/${get}/1`}
+            >
+              <div className="row">
+                <div className="col-md-9 col-sm-9 col-9">
+                  <div className="card-body">
+                    <h5 className="card-title">Card title</h5>
+                    <p className="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                  </div>
+                </div>
+                <div className="col-md-3 col-sm-3 col-3">
+                  <img
+                    src="https://images.unsplash.com/photo-1639196933420-0fad4a755157?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
+                    className="card-img-top h-100"
+                    alt="..."
+                    style={{
+                      clipPath: "polygon(0 0, 100% 0, 100% 100%, 31% 100%)",
+                      borderRadius: "0px 30px 30px 0px",
+                    }}
+                  />
                 </div>
               </div>
-              <div className="col-md-3 col-sm-3 col-3">
-                <img
-                  src="https://images.unsplash.com/photo-1639196933420-0fad4a755157?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
-                  className="card-img-top h-100"
-                  alt="..."
-                  style={{
-                    clipPath: "polygon(0 0, 100% 0, 100% 100%, 31% 100%)",
-                    borderRadius: "0px 30px 30px 0px",
-                  }}
-                />
-              </div>
-            </div>
-          </Link>
+            </Link>
           </div>
           <div className="col-md-6 col-sm-6 col-12">
-          <Link
-            class="card m-0 p-0 text-decoration-none"
-            style={{
-              background: "#ad5389",
-              background: "-webkit-linear-gradient(to right, #3c1053, #ad5389)",
-              background: "linear-gradient(to right, #3c1053, #ad5389)",
-              borderRadius: "30px",
-              width: "35vw",
-            }}
-            to={`/${get}/1`}
-          >
-            <div className="row">
-              <div className="col-md-9 col-sm-9 col-9">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
+            <Link
+              className="card m-0 p-0 text-decoration-none"
+              style={{
+                background: "linear-gradient(to right, #3c1053, #ad5389)",
+                borderRadius: "30px",
+                width: "35vw",
+              }}
+              to={`/${get}/1`}
+            >
+              <div className="row">
+                <div className="col-md-9 col-sm-9 col-9">
+                  <div className="card-body">
+                    <h5 className="card-title">Card title</h5>
+                    <p className="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                  </div>
+                </div>
+                <div className="col-md-3 col-sm-3 col-3">
+                  <img
+                    src="https://images.unsplash.com/photo-1639196933420-0fad4a755157?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
+                    className="card-img-top h-100"
+                    alt="..."
+                    style={{
+                      clipPath: "polygon(0 0, 100% 0, 100% 100%, 31% 100%)",
+                      borderRadius: "0px 30px 30px 0px",
+                    }}
+                  />
                 </div>
               </div>
-              <div className="col-md-3 col-sm-3 col-3">
-                <img
-                  src="https://images.unsplash.com/photo-1639196933420-0fad4a755157?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
-                  className="card-img-top h-100"
-                  alt="..."
-                  style={{
-                    clipPath: "polygon(0 0, 100% 0, 100% 100%, 31% 100%)",
-                    borderRadius: "0px 30px 30px 0px",
-                  }}
-                />
+            </Link>
+            <button
+              id="YZKOE+HVA26QDu4RjpSSnw=="
+              className="btn"
+            >
+              <div>
+
+              hii1
               </div>
-            </div>
-          </Link>
+            </button>
+            <button
+              id="ZpCcdOHVA26QDu4RjpSSng=="
+              className="btn btn-primary"
+            >
+              hii2
+            </button>
+            <button
+              id="ZJKOGpK9ah6QDu4RjpSSmw=="
+              className="btn btn-primary"
+            >
+              hii3
+            </button>
+            <button
+              id="cJ+dB4m8c26QDu4RjpSSmg=="
+              className="btn btn-primary"
+            >
+              hii4
+            </button>
           </div>
-         
         </div>
       </div>
     </div>
