@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import "./home.css";
 function Login({ setGet, showAlert, log }) {
   const history = useHistory();
   const [login, setLogin] = useState({
@@ -45,7 +46,7 @@ function Login({ setGet, showAlert, log }) {
   };
   return (
     <div
-      className="d-flex justify-content-center align-items-center"
+      className="d-flex justify-content-center  align-items-center"
       style={{ height: "92vh" }}
     >
       <button
@@ -60,7 +61,7 @@ function Login({ setGet, showAlert, log }) {
           width="40"
           height="40"
           fill="currentColor"
-          className="bi bi-arrow-left"
+          className="bi bi-arrow-left text-white"
           viewBox="0 0 16 16"
         >
           <path
@@ -69,74 +70,68 @@ function Login({ setGet, showAlert, log }) {
           />
         </svg>
       </button>
-      <div className="container bg-dark " style={{ borderRadius: "40px" }}>
-        <div className="row">
-          <div
-            className="col-md-6 col-sm-6 col-6 d-flex justify-content-center align-items-center m-0 p-0"
-          >
-            <img
-              className="img-fluid m-0 p-0"
-              alt="..."
-              src="1.png"
-            />
-          </div>
-          <div className="col-md-6 col-sm-6 col-6 m-0 p-0">
-            <form onSubmit={getData} className=" p-5">
-              <h1 className="text-center text-light fw-bold mb-4">LOGIN</h1>
-              <p className="text-muted text-center mb-3 ">
-                Please Enter your Team Name and password!
-              </p>
-              <div className="form-floating mb-3">
-                <input
-                  type="text"
-                  className="form-control text-light"
-                  id="name"
-                  value={login.group}
-                  name="group"
-                  onChange={onChange}
-                  style={{border: "none",
-                    borderRadius: "0",background:"transparent",
-                    boxShadow: "inset 0 -1px 0 #2196f3",
-                    borderBottomColor: "primary"}}
-                  required
-                  placeholder="Team Name"
-                />
-                <label htmlFor="name" className="text-light mb-2">
-                  Team Name
-                </label>
-              </div>
+      <div className="container login-css mx-5" style={{ borderRadius: "40px",maxWidth:"600px"}}>
+        <div className="col-md-12 col-sm-12 col-12">
+          <form onSubmit={getData} className=" p-5">
+            <h1 className="text-center text-light fw-bold mb-4">Login</h1>
+            <p className="text-muted text-center mb-3 ">
+              Please Enter your Team Name and password!
+            </p>
+            <div className="form-floating mb-3">
+              <input
+                type="text"
+                className="form-control text-light"
+                id="name"
+                value={login.group}
+                name="group"
+                onChange={onChange}
+                style={{
+                  border: "none",
+                  borderRadius: "0",
+                  background: "transparent",
+                  boxShadow: "inset 0 -1px 0 #2196f3",
+                  borderBottomColor: "primary",
+                }}
+                required
+                placeholder="Team Name"
+              />
+              <label htmlFor="name" className="text-light mb-2">
+                Team Name
+              </label>
+            </div>
 
-              <div className="form-floating">
-                <input
-                  type="password"
-                  className="form-control text-light"
-                  id="password"
-                  value={login.password}
-                  name="password"
-                  placeholder="Password"
-                  onChange={onChange}
-                  style={{border: "none",
-                    borderRadius: "0",background:"transparent",
-                    boxShadow: "inset 0 -1px 0 #2196f3",
-                    borderBottomColor: "primary"}}
-                  required
-                />
-                <label htmlFor="password" className="text-light mb-2">
-                  Password
-                </label>
-              </div>
-              <div className="text-center">
-                <button
-                  type="submit"
-                  className="btn btn-primary text-center mt-5  btn-lg"
-                  style={{borderRadius: "15px"}}
-                >
-                  Login
-                </button>
-              </div>
-            </form>
-            
-          </div>
+            <div className="form-floating">
+              <input
+                type="password"
+                className="form-control text-light"
+                id="password"
+                value={login.password}
+                name="password"
+                placeholder="Password"
+                onChange={onChange}
+                style={{
+                  border: "none",
+                  borderRadius: "0",
+                  background: "transparent",
+                  boxShadow: "inset 0 -1px 0 #2196f3",
+                  borderBottomColor: "primary",
+                }}
+                required
+              />
+              <label htmlFor="password" className="text-light mb-2">
+                Password
+              </label>
+            </div>
+            <div className="text-center">
+              <button
+                type="submit"
+                className="btn btn-light text-center mt-5 px-4 fw-bold  btn-lg"
+                style={{ borderRadius: "15px",fontFamily:"courier prime",letterSpacing:"2px" }}
+              >
+                Login
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

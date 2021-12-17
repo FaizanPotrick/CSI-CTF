@@ -35,21 +35,21 @@ function App() {
   };
   return (
     <Router>
-      <Navbar/>
-      <Instruction/>
-        <Alert color={alert.color} message={alert.message} />
+      <Navbar get={get}/>
+      <Instruction />
+      <Alert color={alert.color} message={alert.message} />
       <Switch>
         <Route exact path="/">
           <Home />
         </Route>
         <Route exact path="/login">
-          <Login setGet={setGet} showAlert={showAlert}/>
+          <Login setGet={setGet} showAlert={showAlert} />
         </Route>
         <Route exact path={`/${get}/challenges`}>
           <Challenges get={get} showAlert={showAlert} />
         </Route>
-        <Route exact path={`/${get}/1`}>
-          <Challenge1/>
+        <Route exact path={`/${get}/challenges/1`}>
+          <Challenge1 />
         </Route>
       </Switch>
     </Router>

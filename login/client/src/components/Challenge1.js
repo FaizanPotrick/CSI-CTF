@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { useHistory } from "react-router-dom";
 function Challenge1() {
   const history = useHistory();
@@ -24,9 +24,22 @@ function Challenge1() {
           />
         </svg>
       </button>
-        <div>Title</div>
-   <div>John is a Noogler and works as a security engineer. One of his colleagues sent him an image. He is now puzzled and couldn't understand what his colleague wants to say. Help John to uncover the secret message.</div>
-   <a target={"_blank"} rel="noreferrer" href="https://drive.google.com/file/d/1T7RFHB1lakrrLV_vv1Dkh399ujEzuTAF/view?usp=sharing">Your Link</a>
+      <div>Title</div>
+      <div>
+        John is a Noogler and works as a security engineer. One of his
+        colleagues sent him an image. He is now puzzled and couldn't understand
+        what his colleague wants to say. Help John to uncover the secret
+        message.
+      </div>
+      <br />
+
+      <img src="../../cryp.jpg" alt="Download" width="30%" height="40%"></img>
+
+      <div className="mt-3">
+        <a className="btn btn-primary" href="../../cryp.jpg" download>
+          Download
+        </a>
+      </div>
     </div>
   );
 }
