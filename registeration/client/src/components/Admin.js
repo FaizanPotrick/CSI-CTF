@@ -29,12 +29,12 @@ function Admin() {
       <table className=" p-0 table table-hover-primary text-light">
         <thead className="text-danger">
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Login</th>
-            <th scope="col">Solved</th>
-            <th scope="col">Logout</th>
-            <th scope="col">Time Taken</th>
+            <th scope="col"> # </th>
+             <th scope="col"> Name </th>
+            <th scope="col"> Login </th> 
+            <th scope="col"> Solved </th>
+            <th scope="col"> Logout </th>
+             <th scope="col"> Time Taken </th>
           </tr>
         </thead>
         <tbody>
@@ -51,12 +51,12 @@ function Admin() {
             const diff = Math.abs(parseInt((time[1] - time[0]) / 60));
             return (
               <tr key={index} className="admin">
-                <th scope="row">{index + 1}</th>
-                <td>{e.group}</td>
-                <td>{moment(`${e.createdAt}`).format("LTS")}</td>
-                <td>{e.solution.length}/10</td>
-                <td>{moment(`${e.updatedAt}`).format("LTS")}</td>
-                <td>{diff}mins</td>
+                <th scope="row"> {index + 1} </th> 
+                <td> {e.group} </td>
+                <td> {moment(`${e.createdAt}`).format("LTS")} </td>
+                <td> {e.solution.length} </td>
+                <td> {moment(`${e.updatedAt}`).format("LTS")} </td>
+                <td> {diff}mins</td>
               </tr>
             );
           })}

@@ -16,11 +16,11 @@ function Register({
   const history = useHistory();
   const getData = async (e) => {
     e.preventDefault();
-    const groupTrim = group.trim();
+    const groupTrim = group.trim()
     const gmailTrim = gmail.trim();
-    const firstMemberTrim = firstMember.trim();
-    const secondMemberTrim = secondMember.trim();
-    const thirdMemberTrim = thirdMember.trim();
+    const firstMemberTrim = firstMember.trim().toLowerCase();
+    const secondMemberTrim = secondMember.trim().toLowerCase();
+    const thirdMemberTrim = thirdMember.trim().toLowerCase();
     const passwordTrim = password.trim();
     const data = await fetch("/register", {
       method: "POST",
@@ -42,7 +42,7 @@ function Register({
     showAlert(res);
     if (
       res ===
-      "danger:This username has already been taken, please enter new username"
+      "#E52B50:white:This TeamName has already been taken, please enter new TeamName"
     ) {
       return setRegister({
         group: "",
@@ -85,9 +85,8 @@ function Register({
             fillRule="evenodd"
             d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
           />
-        </svg>
+        </svg>{" "}
       </button>
-
       <div className="container-fluid  d-flex align-items-center justify-content-center mt-5 ">
         <div
           id="card"
@@ -95,8 +94,8 @@ function Register({
           style={{ maxWidth: "580px" }}
         >
           <p className="text-light text-center form-banner pt-1">
-            CTF Registeration Form
-          </p>
+            CTF Registeration Form{" "}
+          </p>{" "}
           <form id="registeredForm" onSubmit={getData}>
             <div className="form-group mt-4 ">
               <input
@@ -108,7 +107,7 @@ function Register({
                 required
                 placeholder="Group name"
               />
-            </div>
+            </div>{" "}
             <div className="form-group mt-4">
               <input
                 type="email"
@@ -119,7 +118,7 @@ function Register({
                 required
                 placeholder=" Email id"
               />
-            </div>
+            </div>{" "}
             <div className="form-group mt-4 ">
               <input
                 type="text"
@@ -130,7 +129,7 @@ function Register({
                 required
                 placeholder="Name of first member"
               />
-            </div>
+            </div>{" "}
             <div className="form-group mt-4">
               <input
                 type="text"
@@ -140,7 +139,7 @@ function Register({
                 onChange={onChange}
                 placeholder="Name of second member"
               />
-            </div>
+            </div>{" "}
             <div className="form-group mt-4">
               <input
                 type="text"
@@ -150,7 +149,7 @@ function Register({
                 onChange={onChange}
                 placeholder="Name of third member"
               />
-            </div>
+            </div>{" "}
             <div className="form-group mt-4">
               <input
                 type="password"
@@ -160,15 +159,15 @@ function Register({
                 onChange={onChange}
                 placeholder="Password"
               />
-            </div>
+            </div>{" "}
             <div className="form-group text-center mt-3">
               <button type="submit" className="close buttons">
-                SUBMIT
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
+                SUBMIT{" "}
+              </button>{" "}
+            </div>{" "}
+          </form>{" "}
+        </div>{" "}
+      </div>{" "}
     </div>
   );
 }

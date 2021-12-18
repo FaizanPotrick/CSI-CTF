@@ -9,26 +9,26 @@ body {
 }
 .home_image {
   max-width: 50vw;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
-.home-div{
+.home-div {
   position: relative;
   height: 92vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  overflow: hidden;
 }
 #boy {
   position: absolute;
-  width:35vw;
-  left:-2rem;
+  width: 35vw;
+  left: -2rem;
   bottom: -1rem;
   height: 40vh;
   z-index: -200;
 }
-#login_button {
+.login_button {
   background-color: rgb(243, 55, 218);
   font-family: "Courier prime", monospace;
   font-size: 2rem;
@@ -39,28 +39,19 @@ body {
     #ffbac3 100%
   );
   box-shadow: none;
-  letter-spacing: 0;
+  letter-spacing: 1px;
 }
-#login_button:hover,
-#login_button:active {
+.login_button:hover,
+.login_button:active {
   box-shadow: 0px 0px 10px 5px #0ff;
 }
-.sponsor-images {
-  height: 100px;
-}
-.sponsors {
-  font-family: "Courier prime", monospace;
-}
-#hr-line {
-  height: 3px;
-  max-width: 300px;
-  background-color: white;
-}
+
 .glass {
   position: absolute;
   top: 0px;
   left: 0px;
   height: 100vh;
+  width: 400px;
   backdrop-filter: blur(10px) saturate(180%);
   -webkit-backdrop-filter: blur(10px) saturate(180%);
   background-color: rgba(17, 25, 40, 0.1);
@@ -70,15 +61,15 @@ body {
   z-index: 10040;
   color: white;
 }
-.login-css{
+.login-css {
   backdrop-filter: blur(25px) saturate(200%);
   -webkit-backdrop-filter: blur(25px) saturate(200%);
-  background-color: rgba(17, 25, 40, 0.50);
+  background-color: rgba(17, 25, 40, 0.5);
   border-radius: 12px;
   border: 2px solid rgba(42, 91, 196, 0.952);
 }
-.modal-body li{
-font-size: large;
+.modal-body li {
+  font-size: large;
 }
 @media screen and (max-width: 800px) {
   .home_image {
@@ -86,7 +77,6 @@ font-size: large;
     max-width: 500px;
     margin-bottom: 20px;
   }
-  
 }
 @media screen and (max-width: 520px) {
   .home_image {
@@ -94,11 +84,10 @@ font-size: large;
     max-width: 400px;
     margin-bottom: 20px;
   }
-  #boy{
+  #boy {
     display: none;
   }
-  .sponsor-images {
-    width: 200px;
-    height: 100px;
+  .glass {
+    width: 270px;
   }
 }

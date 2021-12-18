@@ -1,11 +1,14 @@
 import React from "react";
 
-function Alert({message,color}) {
+function Alert({ message, color, display,text }) {
   return (
     <div>
-      <div className={`alert alert-${color} position-absolute start-50 translate-middle`} role="alert"
-       style={{width:"fit-content",top:"11vh"}}>
-       {message}
+      <div
+        className={`alert position-absolute start-50 translate-middle d-${display}`}
+        role="alert"
+        style={{ width: "fit-content", zIndex: "5000", top: "8vh",fontFamily:"cairo, sans-serif", backgroundColor:`${color}`,color:`${text}` }}
+      >
+        {message}
       </div>
     </div>
   );

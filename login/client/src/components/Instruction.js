@@ -11,19 +11,19 @@ function Instruction() {
       aria-hidden="true"
     >
       <div className="modal-dialog p-0 m-0">
-        <div className="modal-content glass">
+        <div className="modal-content glass ">
           <div className="modal-header mx-3">
             <h3 className="modal-title mt-2" id="exampleModalLabel">
               Instructions
             </h3>
             <button
               type="button"
-              className="btn-close bg-light"
+              className="btn-close bg-white"
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
           </div>
-          <div className="modal-body">
+          <div className="modal-body mt-3 ">
             <ul>
               <li>
                 This is a timed quiz with 20 questions to be answered in 600

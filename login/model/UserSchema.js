@@ -5,24 +5,24 @@ const userFormat = new mongoose.Schema({
     type: String,
     required: true,
   },
-  gmail:{
-    type:String,
-    required : true
+  gmail: {
+    type: String,
+    required: true,
   },
-  firstMember:{
-    type:String,
-    required:true
+  firstMember: {
+    type: String,
+    required: true,
   },
-  secondMember:{
-    type:String
+  secondMember: {
+    type: String,
   },
-  thirdMember:{
-    type:String
+  thirdMember: {
+    type: String,
   },
   password: {
     type: String,
     required: true,
-  }
+  },
 });
 const User = mongoose.model("GROUP", userFormat);
 module.exports = User;

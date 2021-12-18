@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Alert from "./components/Alert";
-import Challenge1 from "./components/Challenge1";
 import Navbar from "./components/Navbar";
 import Instruction from "./components/Instruction";
 
@@ -18,40 +17,43 @@ function App() {
 
   const [alert, setAlert] = useState({
     color: null,
+    text:null,
     message: null,
+    display:"none",
   });
   const showAlert = (res) => {
     const show = res.split(":");
     setAlert({
       color: show[0],
-      message: show[1],
+      text:show[1],
+      message: show[2],
+      display:"block",
     });
     setTimeout(() => {
       setAlert({
         color: null,
+        text:null,
         message: null,
+        display:"none",
       });
-    }, 3000);
+    }, 5000);
   };
   return (
     <Router>
-      <Navbar get={get}/>
+      <Navbar get={get} showAlert={showAlert}/>
       <Instruction />
-      <Alert color={alert.color} message={alert.message} />
+      <Alert color={alert.color} message={alert.message} text={alert.text} display={alert.display}/>{" "}
       <Switch>
         <Route exact path="/">
           <Home />
-        </Route>
+        </Route>{" "}
         <Route exact path="/login">
-          <Login setGet={setGet} showAlert={showAlert} />
-        </Route>
+          <Login setGet={setGet} showAlert={showAlert} />{" "}
+        </Route>{" "}
         <Route exact path={`/${get}/challenges`}>
-          <Challenges get={get} showAlert={showAlert} />
-        </Route>
-        <Route exact path={`/${get}/challenges/1`}>
-          <Challenge1 />
-        </Route>
-      </Switch>
+          <Challenges get={get} showAlert={showAlert} />{" "}
+        </Route>{" "}
+      </Switch>{" "}
     </Router>
   );
 }
