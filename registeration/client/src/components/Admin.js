@@ -17,6 +17,10 @@ function Admin() {
       },
     });
     const res = await info.json();
+    const loop = res.map((e)=>{
+      return e.solution.length;
+    })
+    console.log(loop.sort(()=>{return loop===6}));
     setUser(res);
   };
   return (
