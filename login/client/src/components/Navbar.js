@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./home.css";
-import logo from "../images/csi-logo.png";
+import logo from "../images/CSI-CATT-DMCE.webp";
 import { Link, useLocation } from "react-router-dom";
 
 function Navbar({ get, showAlert }) {
@@ -26,7 +26,7 @@ function Navbar({ get, showAlert }) {
             id="csi-logo"
             src={logo}
             alt="CSI Logo"
-            style={{ maxWidth: "14rem", maxHeight: "14rem" }}
+            style={{ width: "14rem" }}
           />{" "}
         </a>
         <Link

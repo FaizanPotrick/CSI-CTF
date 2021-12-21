@@ -13,7 +13,6 @@ function App() {
     secondMember: "",
     thirdMember: "",
     password: "",
-
   });
   const onChange = (e) => {
     const { value, name } = e.target;
@@ -28,7 +27,7 @@ function App() {
     color: null,
     text: null,
     message: null,
-    display: 'none',
+    display: "none",
   });
   const showAlert = (res) => {
     const show = res.split(":");
@@ -36,23 +35,28 @@ function App() {
       color: show[0],
       text: show[1],
       message: show[2],
-      display: 'block',
+      display: "block",
     });
     setTimeout(() => {
       setAlert({
         color: null,
         text: null,
         message: null,
-        display: 'none',
+        display: "none",
       });
     }, 5000);
   };
   return (
     <div>
       <Router>
-        <Alert color={alert.color} text={alert.text} message={alert.message} display={alert.display} />{" "}
+        <Alert
+          color={alert.color}
+          text={alert.text}
+          message={alert.message}
+          display={alert.display}
+        />{" "}
         <Switch>
-          <Route exact path="/CTF-admin" component={Admin} />{" "}
+          <Route exact path="/ctf-admin" component={Admin} />{" "}
           <Route exact path="/register">
             <Register
               setRegister={setRegister}

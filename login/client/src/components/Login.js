@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./home.css";
 
-function Login({ setGet, showAlert, log }) {
+function Login({ setGet, showAlert }) {
   const history = useHistory();
   const [login, setLogin] = useState({
     group: "",
@@ -16,6 +16,30 @@ function Login({ setGet, showAlert, log }) {
         [name]: value,
       };
     });
+  };
+
+  const delay = (ms) => new Promise((res) => setTimeout(res, ms));
+
+  const toggleDisplay = async () => {
+    await delay(200);
+    const x = await document.querySelectorAll(".login-form");
+    await x.forEach((e) => {
+      e.classList.remove("login-css");
+      e.style.display = "none";
+      e.style.opacity = "0";
+      e.style.transition = "opacity 1s ease-in-out";
+      e.style.transitionDelay = "1s";
+      e.style.transitionDuration = "1s";
+    });
+    const img = document.querySelector("#login-img");
+    console.log(img);
+    img.classList.add("d-flex");
+    img.style.display = "block";
+    img.style.opacity = "1";
+    img.style.transition = "opacity 1s ease-in-out";
+    window.setTimeout(function () {
+      img.style.display = "none";
+    }, 4000);
   };
   const getData = async (e) => {
     e.preventDefault();
@@ -34,12 +58,28 @@ function Login({ setGet, showAlert, log }) {
       credentials: "include",
     });
     const res = await data.json();
-    if (res.length) {
-      return showAlert(res);
+    if (res === "#E52D50:white:The TeamName is Incorrect please try again") {
+      return [
+        showAlert(res),
+        setLogin({
+          group: "",
+          password: "",
+        }),
+      ];
+    }
+    if (res === "#E52D50:white:The Password is Incorrect please try again") {
+      return [
+        showAlert(res),
+        setLogin({
+          group: "",
+          password: "",
+        }),
+      ];
     }
     setGet(res.data[0]._id);
-    showAlert(res.alert);
-    history.push(`/${res.data[0]._id}/challenges`);
+    await toggleDisplay();
+    await delay(3000);
+    await history.push(`/${res.data[0]._id}/challenges`);
     setLogin({
       group: "",
       password: "",
@@ -71,12 +111,23 @@ function Login({ setGet, showAlert, log }) {
           />
         </svg>{" "}
       </button>{" "}
+      <img
+        id="login-img"
+        style={{
+          width: "50%",
+          height: "60%",
+          display: "none",
+        }}
+        className=" container  justify-content-center align-items-center"
+        src="ag.gif"
+        alt="..."
+      />{" "}
       <div
-        className="container login-css mx-5"
+        className="container login-css mx-5 login-form"
         style={{ borderRadius: "40px", maxWidth: "600px" }}
       >
-        <div className="col-md-12 col-sm-12 col-12">
-          <form onSubmit={getData} className=" p-5">
+        <div className="col-md-12 col-sm-12 col-12 login-form">
+          <form onSubmit={getData} className="p-5 form-submit login-form">
             <h1 className="text-center text-light fw-bold mb-4"> Login </h1>{" "}
             <p className="text-muted text-center mb-3 ">
               Please Enter your Team Name and password!
@@ -102,7 +153,7 @@ function Login({ setGet, showAlert, log }) {
               <label htmlFor="name" className="text-light mb-2">
                 Team Name{" "}
               </label>{" "}
-            </div>
+            </div>{" "}
             <div className="form-floating">
               <input
                 type="password"

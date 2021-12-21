@@ -16,7 +16,7 @@ function Register({
   const history = useHistory();
   const getData = async (e) => {
     e.preventDefault();
-    const groupTrim = group.trim()
+    const groupTrim = group.trim();
     const gmailTrim = gmail.trim();
     const firstMemberTrim = firstMember.trim().toLowerCase();
     const secondMemberTrim = secondMember.trim().toLowerCase();
@@ -31,9 +31,9 @@ function Register({
       body: JSON.stringify({
         group: groupTrim,
         gmail: gmailTrim,
-        firstMember: firstMemberTrim,
-        secondMember: secondMemberTrim,
-        thirdMember: thirdMemberTrim,
+        firstMember: firstMemberTrim.toLowerCase(),
+        secondMember: secondMemberTrim.toLowerCase(),
+        thirdMember: thirdMemberTrim.toLowerCase(),
         password: passwordTrim,
       }),
       credentials: "include",
@@ -72,20 +72,10 @@ function Register({
           history.push("/");
         }}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="40"
-          height="40"
-          fill="currentColor"
+        <i
           className="bi bi-arrow-left"
-          viewBox="0 0 16 16"
-          style={{ zIndex: "100" }}
-        >
-          <path
-            fillRule="evenodd"
-            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
-          />
-        </svg>{" "}
+          style={{ zIndex: "100", fontSize: "40px" }}
+        ></i>
       </button>
       <div className="container-fluid  d-flex align-items-center justify-content-center mt-5 ">
         <div

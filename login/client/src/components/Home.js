@@ -5,8 +5,8 @@ function Home() {
   return (
     <div className="home-div container-fluid">
       <div className="home_image">
-        <img className="home_image img-fluid " src="banner.png" alt="..." />
-        <img src="boy.png" id="boy" alt="..." />
+        <img className="home_image img-fluid " src="banner.webp" alt="..." />
+        <img src="boy.webp" id="boy" alt="..." />
       </div>
       <div className="container d-flex flex-column justify-content-center align-items-center">
         <Link

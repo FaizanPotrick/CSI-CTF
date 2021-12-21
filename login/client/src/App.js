@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Challenges from "./components/Challenges";
 import { useState, useEffect } from "react";
@@ -17,32 +18,36 @@ function App() {
 
   const [alert, setAlert] = useState({
     color: null,
-    text:null,
+    text: null,
     message: null,
-    display:"none",
+    display: "none",
   });
   const showAlert = (res) => {
     const show = res.split(":");
     setAlert({
       color: show[0],
-      text:show[1],
+      text: show[1],
       message: show[2],
-      display:"block",
+      display: "block",
     });
     setTimeout(() => {
       setAlert({
         color: null,
-        text:null,
+        text: null,
         message: null,
-        display:"none",
+        display: "none",
       });
     }, 5000);
   };
   return (
     <Router>
-      <Navbar get={get} showAlert={showAlert}/>
-      <Instruction />
-      <Alert color={alert.color} message={alert.message} text={alert.text} display={alert.display}/>{" "}
+      <Navbar get={get} showAlert={showAlert} /> <Instruction />
+      <Alert
+        color={alert.color}
+        message={alert.message}
+        text={alert.text}
+        display={alert.display}
+      />{" "}
       <Switch>
         <Route exact path="/">
           <Home />

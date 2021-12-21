@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import CryptoJS from "crypto-js";
 import "./challenges.css";
 import "./cards.css";
@@ -19,25 +19,25 @@ function Challenges({ get, showAlert }) {
         credentials: "include",
       });
       const res = await data.json();
-      const targetAnswer = res.map((e)=>{
+      const targetAnswer = res.map((e) => {
         return e.target;
-      })
+      });
       setDisable(targetAnswer);
     };
     api();
   }, [get]);
-  disable.map((e)=>{
+  disable.map((e) => {
     const id = document.getElementById(e);
-      const text = document.createElement("i");
-      text.classList.add("bi");
-      text.classList.add("bi-check-circle-fill");
-      text.style.color = "greenyellow";
-      text.style.position = "absolute";
-      text.style.fontSize="30px"
-      text.style.top = "10px";
-      text.style.right = "20px";
-      id.setAttribute("disabled",true);
-      return id.appendChild(text);
+    const text = document.createElement("i");
+    text.classList.add("bi");
+    text.classList.add("bi-check-circle-fill");
+    text.style.color = "greenyellow";
+    text.style.position = "absolute";
+    text.style.fontSize = "30px";
+    text.style.top = "10px";
+    text.style.right = "20px";
+    id.setAttribute("disabled", true);
+    return id.appendChild(text);
   });
   const onChange = (e) => {
     setAnswer(e.target.value);
@@ -61,7 +61,7 @@ function Challenges({ get, showAlert }) {
       "cJ+dB4m8c26QDu4RjpSSmg==",
       "YYyGEY+xcG6QDu4RjpSSmg==",
       "ZZKOF4qmawfgDu4RjpSSlA==",
-      "Zo6AGI26A26QDu4RjpSSmQ=="
+      "Zo6AGI26A26QDu4RjpSSmQ==",
     ];
     const filter = array.filter((e) => {
       return e === encrypted;
@@ -102,16 +102,10 @@ function Challenges({ get, showAlert }) {
         data-bs-target="#exampleModal"
         style={{ position: "absolute", top: "13vh", right: "0px" }}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="40"
-          height="40"
-          fill="currentColor"
+        <i
           className="bi bi-question-circle-fill text-light"
-          viewBox="0 0 16 16"
-        >
-          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z" />
-        </svg>
+          style={{ fontSize: "40px" }}
+        ></i>
       </button>
       <form
         className="row g-3 d-flex flex-column align-items-center mt-3 mb-5"
@@ -135,18 +129,20 @@ function Challenges({ get, showAlert }) {
           Submit
         </button>
       </form>
-
       <div className="container-m">
         <button className="card btn" id="YZKOE+HVA26QDu4RjpSSnw==">
           <div className="box">
             <div className="content">
               <h2>01</h2>
-              <h3>Card One</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
-                totam velit? Iure nemo labore inventore?
-              </p>
-              <a href="/">Read More</a>
+              <p>What Lies Within?</p>
+              <button
+                type="button"
+                className="btn "
+                data-bs-toggle="modal"
+                data-bs-target="#card1"
+              >
+                Read More
+              </button>
             </div>
           </div>
         </button>
@@ -154,12 +150,15 @@ function Challenges({ get, showAlert }) {
           <div className="box">
             <div className="content">
               <h2>02</h2>
-              <h3>Card Two</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
-                totam velit? Iure nemo labore inventore?
-              </p>
-              <a href="http://www.w3.org/2000/svg">Read More</a>
+              <p>Luminous Hunt</p>
+              <button
+                type="button"
+                className="btn "
+                data-bs-toggle="modal"
+                data-bs-target="#card2"
+              >
+                Read More
+              </button>
             </div>
           </div>
         </button>
@@ -167,12 +166,16 @@ function Challenges({ get, showAlert }) {
           <div className="box">
             <div className="content">
               <h2>03</h2>
-              <h3>Card Three</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
-                totam velit? Iure nemo labore inventore?
-              </p>
-              <a href="http://www.w3.org/2000/svg">Read More</a>
+              <p>A Tribute</p>
+              <a
+                type="button"
+                className="btn"
+                href="https://github.com/mak372/CTF"
+                target={"_blank"}
+                rel={"noreferrer"}
+              >
+                Read More
+              </a>
             </div>
           </div>
         </button>
@@ -180,12 +183,15 @@ function Challenges({ get, showAlert }) {
           <div className="box">
             <div className="content">
               <h2>04</h2>
-              <h3>Card Four</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
-                totam velit? Iure nemo labore inventore?
-              </p>
-              <a href="/">Read More</a>
+              <p>Cryptography</p>
+              <button
+                type="button"
+                className="btn "
+                data-bs-toggle="modal"
+                data-bs-target="#card4"
+              >
+                Read More
+              </button>
             </div>
           </div>
         </button>
@@ -193,12 +199,15 @@ function Challenges({ get, showAlert }) {
           <div className="box">
             <div className="content">
               <h2>05</h2>
-              <h3>Card Five</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
-                totam velit? Iure nemo labore inventore?
-              </p>
-              <a href="/">Read More</a>
+              <p>JS NERDS</p>
+              <button
+                type="button"
+                className="btn "
+                data-bs-toggle="modal"
+                data-bs-target="#card5"
+              >
+                Read More
+              </button>
             </div>
           </div>
         </button>
@@ -206,12 +215,16 @@ function Challenges({ get, showAlert }) {
           <div className="box">
             <div className="content">
               <h2>06</h2>
-              <h3>Card six</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
-                totam velit? Iure nemo labore inventore?
-              </p>
-              <a href="/">Read More</a>
+              <p>Computer Engineering</p>
+              <a
+                type="button"
+                className="btn "
+                href="https://github.com/Snimblkar53/Ctf"
+                target={"_blank"}
+                rel={"noreferrer"}
+              >
+                Read More
+              </a>
             </div>
           </div>
         </button>
