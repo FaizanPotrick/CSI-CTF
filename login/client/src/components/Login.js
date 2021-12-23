@@ -32,7 +32,6 @@ function Login({ setGet, showAlert }) {
       e.style.transitionDuration = "1s";
     });
     const img = document.querySelector("#login-img");
-    console.log(img);
     img.classList.add("d-flex");
     img.style.display = "block";
     img.style.opacity = "1";

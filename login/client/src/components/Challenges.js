@@ -54,14 +54,15 @@ function Challenges({ get, showAlert }) {
       mode: mode,
       padding: padding,
     }).toString();
-    // console.log(encrypted);
+    console.log(encrypted);
     const array = [
-      "YZKOE+HVA26QDu4RjpSSnw==",
-      "ZpCcdOHVA26QDu4RjpSSng==",
-      "cJ+dB4m8c26QDu4RjpSSmg==",
-      "YYyGEY+xcG6QDu4RjpSSmg==",
-      "ZZKOF4qmawfgDu4RjpSSlA==",
-      "Zo6AGI26A26QDu4RjpSSmQ==",
+      "ZI2GWYKhZRXgXN5n5/D3/UeUze7Pr1MSc2xFRyBn8WA=",
+      "ZI2GWYKhZRXzYYB2/PXm5gx+HZbrKZbLxbRiXLPP1msqDEtCSXkCpirRVV1NsEgV",
+      "ZI2GWYKhZRXkZodi0f3hzBv25MFqHWkYPpWDG3y2rq7IWS/tnuC4jhxydvfc+oXB",
+      "ZI2GWYKhZRX9YZxi67n7/X20ALOXN3zRDSkOEl2Ndis=",
+      "ZI2GWYKhZRX1Vp594d3m9ikLLiOplmxMdyyPtI/cfws=",
+      "ZI2GWYKhZU7rTb5d0dfB2vb5Uo9KGpaFFDkBYM5Pt0I=",
+      "ZI2GWYKhZRXca5o2/cv1/L7eO35e4LJTFwM3AdeyqfPqt6LFKl7KgS6MknbiPxrj",
     ];
     const filter = array.filter((e) => {
       return e === encrypted;
@@ -130,39 +131,50 @@ function Challenges({ get, showAlert }) {
         </button>
       </form>
       <div className="container-m">
-        <button className="card btn" id="YZKOE+HVA26QDu4RjpSSnw==">
+        <button
+          className="card btn"
+          id="ZI2GWYKhZRXca5o2/cv1/L7eO35e4LJTFwM3AdeyqfPqt6LFKl7KgS6MknbiPxrj"
+        >
           <div className="box">
             <div className="content">
               <h2>01</h2>
               <p>What Lies Within?</p>
-              <button
+              <a
                 type="button"
                 className="btn "
-                data-bs-toggle="modal"
-                data-bs-target="#card1"
+                href="https://csidmce-ctfchallenge.netlify.app/what-lies-within.html"
+                target={"_blank"}
+                rel={"noreferrer"}
               >
                 Read More
-              </button>
+              </a>
             </div>
           </div>
         </button>
-        <button className="card btn" id="ZpCcdOHVA26QDu4RjpSSng==">
+        <button
+          className="card btn"
+          id="ZI2GWYKhZU7rTb5d0dfB2vb5Uo9KGpaFFDkBYM5Pt0I="
+        >
           <div className="box">
             <div className="content">
               <h2>02</h2>
               <p>Luminous Hunt</p>
-              <button
+              <a
                 type="button"
                 className="btn "
-                data-bs-toggle="modal"
-                data-bs-target="#card2"
+                href="https://csidmce-ctfchallenge.netlify.app/luminous-hunt"
+                target={"_blank"}
+                rel={"noreferrer"}
               >
                 Read More
-              </button>
+              </a>
             </div>
           </div>
         </button>
-        <button className="card btn" id="cJ+dB4m8c26QDu4RjpSSmg==">
+        <button
+          className="card btn"
+          id="ZI2GWYKhZRXzYYB2/PXm5gx+HZbrKZbLxbRiXLPP1msqDEtCSXkCpirRVV1NsEgV"
+        >
           <div className="box">
             <div className="content">
               <h2>03</h2>
@@ -179,39 +191,50 @@ function Challenges({ get, showAlert }) {
             </div>
           </div>
         </button>
-        <button className="card btn" id="YYyGEY+xcG6QDu4RjpSSmg==">
+        <button
+          className="card btn"
+          id="ZI2GWYKhZRXgXN5n5/D3/UeUze7Pr1MSc2xFRyBn8WA="
+        >
           <div className="box">
             <div className="content">
               <h2>04</h2>
-              <p>Cryptography</p>
-              <button
+              <p>Attack on Bank</p>
+              <a
                 type="button"
                 className="btn "
-                data-bs-toggle="modal"
-                data-bs-target="#card4"
+                href="https://csidmce-ctfchallenge.netlify.app/attack-on-bank.html"
+                target={"_blank"}
+                rel={"noreferrer"}
               >
                 Read More
-              </button>
+              </a>
             </div>
           </div>
         </button>
-        <button className="card btn" id="ZZKOF4qmawfgDu4RjpSSlA==">
+        <button
+          className="card btn"
+          id="ZI2GWYKhZRX1Vp594d3m9ikLLiOplmxMdyyPtI/cfws="
+        >
           <div className="box">
             <div className="content">
               <h2>05</h2>
               <p>JS NERDS</p>
-              <button
+              <a
                 type="button"
                 className="btn "
-                data-bs-toggle="modal"
-                data-bs-target="#card5"
+                href="https://csidmce-ctfchallenge.herokuapp.com"
+                target={"_blank"}
+                rel={"noreferrer"}
               >
                 Read More
-              </button>
+              </a>
             </div>
           </div>
         </button>
-        <button className="card btn" id="Zo6AGI26A26QDu4RjpSSmQ==">
+        <button
+          className="card btn"
+          id="ZI2GWYKhZRXkZodi0f3hzBv25MFqHWkYPpWDG3y2rq7IWS/tnuC4jhxydvfc+oXB"
+        >
           <div className="box">
             <div className="content">
               <h2>06</h2>
@@ -220,6 +243,46 @@ function Challenges({ get, showAlert }) {
                 type="button"
                 className="btn "
                 href="https://github.com/Snimblkar53/Ctf"
+                target={"_blank"}
+                rel={"noreferrer"}
+              >
+                Read More
+              </a>
+            </div>
+          </div>
+        </button>
+        <button
+          className="card btn"
+          id="ZI2GWYKhZRX9YZxi67n7/X20ALOXN3zRDSkOEl2Ndis="
+        >
+          <div className="box">
+            <div className="content">
+              <h2>07</h2>
+              <p>Decode It</p>
+              <a
+                type="button"
+                className="btn "
+                href="/"
+                target={"_blank"}
+                rel={"noreferrer"}
+              >
+                Read More
+              </a>
+            </div>
+          </div>
+        </button>
+        <button
+          className="card btn"
+          id=""
+        >
+          <div className="box">
+            <div className="content">
+              <h2>08</h2>
+              <p>Crack the Sequence</p>
+              <a
+                type="button"
+                className="btn "
+                href="/"
                 target={"_blank"}
                 rel={"noreferrer"}
               >

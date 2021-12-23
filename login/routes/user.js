@@ -11,11 +11,15 @@ router.post("/login", async (req, res) => {
   try {
     const data = await User.find({ group: group });
     if (!data.length) {
-      return res.json("#E52D50:white:The TeamName is Incorrect please try again");
+      return res.json(
+        "#E52D50:white:The TeamName is Incorrect please try again"
+      );
     }
     const encrypt = bcrypt.compareSync(password, data[0].password);
     if (!encrypt) {
-      return res.json("#E52D50:white:The Password is Incorrect please try again");
+      return res.json(
+        "#E52D50:white:The Password is Incorrect please try again"
+      );
     }
     const id = data[0]._id;
     const check = await Data.find({ id: id });
@@ -30,10 +34,18 @@ router.post("/login", async (req, res) => {
   }
 });
 router.post("/submit", async (req, res) => {
-  const { id, answer,target } = req.body;
+  const { id, answer, target } = req.body;
   try {
     const currentTime = moment().format("h:mm:ss a");
-    const answerArray = ["flag", "ans", "warship","friends","blackship","apollo"];
+    const answerArray = [
+      "csi-ctf{pR0videncE_$4ys_He110}",
+      "csi-ctf{congratulations_the_flag_is_jira}",
+      "csi-ctf{this_is_the_flag_codecocomo}",
+      "csi-ctf{morse-interstellar}",
+      "csi-ctf{eXploIted_wEb}",
+      "csi-ctf {CPL_CSI}",
+      "csi-ctf{Let's_go_to_the_subway_for_lunch}",
+    ];
     const check = answerArray.filter((ele) => {
       return ele === answer;
     });
@@ -49,7 +61,11 @@ router.post("/submit", async (req, res) => {
     }
     await Data.updateOne(
       { id: id },
-      { $push: { solution: { answer: answer,target: target, time: currentTime } } }
+      {
+        $push: {
+          solution: { answer: answer, target: target, time: currentTime },
+        },
+      }
     );
     res.json("greenyellow:black:Correct");
   } catch (error) {
@@ -57,9 +73,9 @@ router.post("/submit", async (req, res) => {
   }
 });
 router.post("/site-target", async (req, res) => {
-  const {id} = req.body;
+  const { id } = req.body;
   try {
-    const findTarget = await Data.find({id:id});
+    const findTarget = await Data.find({ id: id });
     const findArray = findTarget[0].solution.filter((e) => {
       return e;
     });
