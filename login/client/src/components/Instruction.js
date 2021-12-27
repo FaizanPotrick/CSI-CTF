@@ -24,26 +24,32 @@ function Instruction() {
             ></button>
           </div>
           <div className="modal-body mt-3 ">
-            <ul>
+            <ol>
               <li>
-                This is a timed quiz with 20 questions to be answered in 600
-                seconds
+                In this CTF you have to find 8 flags and submit them all as fast
+                as possible
               </li>
               <li>
-                These questions will be randomly picked from the question bank.
                 Winners will be adjudged on the basis of maximum number of
-                correct answers.
+                correct answers and thier time.
               </li>
               <li>
-                In case of multiple participants having given same number of
-                correct answers, the participants who take the least time to
-                complete the quiz will be adjudged the winner.
+                The format of the flag should be :<br></br><strong>csi-ctf&#123;flag&#125;</strong>
+              </li>
+              <li>
+                For each Question you have to find the flag and submit it in the
+                challenges page
+              </li>
+              <li>
+                In case of multiple Teams having given same number of correct
+                answers, the Teams who take the least time to complete the quiz
+                will be adjudged the winner.
               </li>
               <li>You can skip a tough question and come back to it later.</li>
               <li>
-                The quiz will start as soon as you click the Start Quiz button.
+                The quiz timer will start as soon as you click the Play button.
               </li>
-            </ul>
+            </ol>
           </div>
         </div>
       </div>

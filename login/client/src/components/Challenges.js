@@ -54,15 +54,16 @@ function Challenges({ get, showAlert }) {
       mode: mode,
       padding: padding,
     }).toString();
-    console.log(encrypted);
+    console.log(encrypted)
     const array = [
       "ZI2GWYKhZRXgXN5n5/D3/UeUze7Pr1MSc2xFRyBn8WA=",
       "ZI2GWYKhZRXzYYB2/PXm5gx+HZbrKZbLxbRiXLPP1msqDEtCSXkCpirRVV1NsEgV",
       "ZI2GWYKhZRXkZodi0f3hzBv25MFqHWkYPpWDG3y2rq7IWS/tnuC4jhxydvfc+oXB",
-      "ZI2GWYKhZRX9YZxi67n7/X20ALOXN3zRDSkOEl2Ndis=",
+      "ZI2GWYKhZRXTXqJOzcfb7mmdA4uEcrTw4J918a/3Nhs=",
       "ZI2GWYKhZRX1Vp594d3m9ikLLiOplmxMdyyPtI/cfws=",
-      "ZI2GWYKhZU7rTb5d0dfB2vb5Uo9KGpaFFDkBYM5Pt0I=",
+      "ZI2GWYKhZRX9YZxi67n7/X20ALOXN3zRDSkOEl2Ndis=",
       "ZI2GWYKhZRXca5o2/cv1/L7eO35e4LJTFwM3AdeyqfPqt6LFKl7KgS6MknbiPxrj",
+      "ZI2GWYKhZRXja59k6/rm+koReokB9jVaCv1QMFXsC1Y=",
     ];
     const filter = array.filter((e) => {
       return e === encrypted;
@@ -88,9 +89,9 @@ function Challenges({ get, showAlert }) {
       credentials: "include",
     });
     const res = await data.json();
-    window.location.reload(true);
     showAlert(res);
     setAnswer("");
+    await window.location.reload(true);
   };
   return (
     <div
@@ -146,14 +147,14 @@ function Challenges({ get, showAlert }) {
                 target={"_blank"}
                 rel={"noreferrer"}
               >
-                Read More
+                Play
               </a>
             </div>
           </div>
         </button>
         <button
           className="card btn"
-          id="ZI2GWYKhZU7rTb5d0dfB2vb5Uo9KGpaFFDkBYM5Pt0I="
+          id="ZI2GWYKhZRXTXqJOzcfb7mmdA4uEcrTw4J918a/3Nhs="
         >
           <div className="box">
             <div className="content">
@@ -166,7 +167,7 @@ function Challenges({ get, showAlert }) {
                 target={"_blank"}
                 rel={"noreferrer"}
               >
-                Read More
+                Play
               </a>
             </div>
           </div>
@@ -186,7 +187,7 @@ function Challenges({ get, showAlert }) {
                 target={"_blank"}
                 rel={"noreferrer"}
               >
-                Read More
+                Play
               </a>
             </div>
           </div>
@@ -206,7 +207,7 @@ function Challenges({ get, showAlert }) {
                 target={"_blank"}
                 rel={"noreferrer"}
               >
-                Read More
+                Play
               </a>
             </div>
           </div>
@@ -226,7 +227,7 @@ function Challenges({ get, showAlert }) {
                 target={"_blank"}
                 rel={"noreferrer"}
               >
-                Read More
+                Play
               </a>
             </div>
           </div>
@@ -246,7 +247,7 @@ function Challenges({ get, showAlert }) {
                 target={"_blank"}
                 rel={"noreferrer"}
               >
-                Read More
+                Play
               </a>
             </div>
           </div>
@@ -262,18 +263,18 @@ function Challenges({ get, showAlert }) {
               <a
                 type="button"
                 className="btn "
-                href="/"
+                href="https://csidmce-ctfchallenges.netlify.app/decode_it"
                 target={"_blank"}
                 rel={"noreferrer"}
               >
-                Read More
+                Play
               </a>
             </div>
           </div>
         </button>
         <button
           className="card btn"
-          id=""
+          id="ZI2GWYKhZRXja59k6/rm+koReokB9jVaCv1QMFXsC1Y="
         >
           <div className="box">
             <div className="content">
@@ -282,11 +283,11 @@ function Challenges({ get, showAlert }) {
               <a
                 type="button"
                 className="btn "
-                href="/"
+                href="https://csidmce-ctfchallenges.netlify.app/crack_the_sequence"
                 target={"_blank"}
                 rel={"noreferrer"}
               >
-                Read More
+                Play
               </a>
             </div>
           </div>
