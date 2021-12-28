@@ -26,7 +26,7 @@ function Instruction() {
           <div className="modal-body mt-3 ">
             <ol>
               <li>
-                In this CTF you have to find 8 flags and submit them all as fast
+                In this CTF you have to find 9 flags and submit them all as fast
                 as possible
               </li>
               <li>

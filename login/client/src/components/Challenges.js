@@ -64,6 +64,7 @@ function Challenges({ get, showAlert }) {
       "ZI2GWYKhZRX9YZxi67n7/X20ALOXN3zRDSkOEl2Ndis=",
       "ZI2GWYKhZRXca5o2/cv1/L7eO35e4LJTFwM3AdeyqfPqt6LFKl7KgS6MknbiPxrj",
       "ZI2GWYKhZRXja59k6/rm+koReokB9jVaCv1QMFXsC1Y=",
+      "ZI2GWYKhZRXQTb1YytnR1vFtML1OjTQluYaij94xkf4="
     ];
     const filter = array.filter((e) => {
       return e === encrypted;
@@ -284,6 +285,26 @@ function Challenges({ get, showAlert }) {
                 type="button"
                 className="btn "
                 href="https://csidmce-ctfchallenges.netlify.app/crack_the_sequence"
+                target={"_blank"}
+                rel={"noreferrer"}
+              >
+                Play
+              </a>
+            </div>
+          </div>
+        </button>
+        <button
+          className="card btn"
+          id="ZI2GWYKhZRXQTb1YytnR1vFtML1OjTQluYaij94xkf4="
+        >
+          <div className="box">
+            <div className="content">
+              <h2>09</h2>
+              <p>One Zero One</p>
+              <a
+                type="button"
+                className="btn "
+                href="https://csidmce-ctfchallenge.netlify.app/one-zero-one"
                 target={"_blank"}
                 rel={"noreferrer"}
               >

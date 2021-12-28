@@ -46,6 +46,7 @@ router.post("/submit", async (req, res) => {
       "csi-ctf{CPL_CSI}",
       "csi-ctf{Let's_go_to_the_subway_for_lunch}",
       "csi-ctf{sequential_flag}",
+      "csi-ctf{@CSIDMCECTF#}"
     ];
     const check = answerArray.filter((ele) => {
       return ele === answer;
