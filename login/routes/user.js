@@ -41,9 +41,9 @@ router.post("/submit", async (req, res) => {
       "csi-ctf{pR0videncE_$4ys_He110}",
       "csi-ctf{congratulations_the_flag_is_jira}",
       "csi-ctf{this_is_the_flag_codecocomo}",
-      "csi-ctf{morse-interstellar}",
+      "csi-ctf{MORSEINTERSTELLAR}",
       "csi-ctf{eXploIted_wEb}",
-      "csi-ctf{CPL_CSI}",
+      "csi-ctf{CPL-CSI}",
       "csi-ctf{Let's_go_to_the_subway_for_lunch}",
       "csi-ctf{sequential_flag}",
       "csi-ctf{@CSIDMCECTF#}"

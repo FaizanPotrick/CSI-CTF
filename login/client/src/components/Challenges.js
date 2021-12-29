@@ -59,9 +59,9 @@ function Challenges({ get, showAlert }) {
       "ZI2GWYKhZRXgXN5n5/D3/UeUze7Pr1MSc2xFRyBn8WA=",
       "ZI2GWYKhZRXzYYB2/PXm5gx+HZbrKZbLxbRiXLPP1msqDEtCSXkCpirRVV1NsEgV",
       "ZI2GWYKhZRXkZodi0f3hzBv25MFqHWkYPpWDG3y2rq7IWS/tnuC4jhxydvfc+oXB",
-      "ZI2GWYKhZRXTXqJOzcfb7mmdA4uEcrTw4J918a/3Nhs=",
+      "ZI2GWYKhZRXTXqI8zcfb7rAB9+ZjhHC67ft+RGdkgv0=",
       "ZI2GWYKhZRX1Vp594d3m9ikLLiOplmxMdyyPtI/cfws=",
-      "ZI2GWYKhZRX9YZxi67n7/X20ALOXN3zRDSkOEl2Ndis=",
+      "ZI2GWYKhZRXdQbxCy93cx3fOJX0JCVI5NzYSR0L1qb8=",
       "ZI2GWYKhZRXca5o2/cv1/L7eO35e4LJTFwM3AdeyqfPqt6LFKl7KgS6MknbiPxrj",
       "ZI2GWYKhZRXja59k6/rm+koReokB9jVaCv1QMFXsC1Y=",
       "ZI2GWYKhZRXQTb1YytnR1vFtML1OjTQluYaij94xkf4="
@@ -155,7 +155,7 @@ function Challenges({ get, showAlert }) {
         </button>
         <button
           className="card btn"
-          id="ZI2GWYKhZRXTXqJOzcfb7mmdA4uEcrTw4J918a/3Nhs="
+          id="ZI2GWYKhZRXTXqI8zcfb7rAB9+ZjhHC67ft+RGdkgv0="
         >
           <div className="box">
             <div className="content">
@@ -255,7 +255,7 @@ function Challenges({ get, showAlert }) {
         </button>
         <button
           className="card btn"
-          id="ZI2GWYKhZRX9YZxi67n7/X20ALOXN3zRDSkOEl2Ndis="
+          id="ZI2GWYKhZRXdQbxCy93cx3fOJX0JCVI5NzYSR0L1qb8="
         >
           <div className="box">
             <div className="content">

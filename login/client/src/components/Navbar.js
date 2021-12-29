@@ -39,7 +39,7 @@ function Navbar({ get, showAlert }) {
             );
           }}
         >
-          End Task
+          Log out
         </Link>{" "}
       </div>{" "}
     </nav>
