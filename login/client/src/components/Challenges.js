@@ -36,7 +36,7 @@ function Challenges({ get, showAlert }) {
     text.style.fontSize = "30px";
     text.style.top = "10px";
     text.style.right = "20px";
-    id.setAttribute("disabled", true);
+    // id.setAttribute("disabled", true);
     return id.appendChild(text);
   });
   const onChange = (e) => {
@@ -54,7 +54,6 @@ function Challenges({ get, showAlert }) {
       mode: mode,
       padding: padding,
     }).toString();
-    console.log(encrypted)
     const array = [
       "ZI2GWYKhZRXgXN5n5/D3/UeUze7Pr1MSc2xFRyBn8WA=",
       "ZI2GWYKhZRXzYYB2/PXm5gx+HZbrKZbLxbRiXLPP1msqDEtCSXkCpirRVV1NsEgV",
@@ -64,9 +63,10 @@ function Challenges({ get, showAlert }) {
       "ZI2GWYKhZRXdQbxCy93cx3fOJX0JCVI5NzYSR0L1qb8=",
       "ZI2GWYKhZRXca5o2/cv1/L7eO35e4LJTFwM3AdeyqfPqt6LFKl7KgS6MknbiPxrj",
       "ZI2GWYKhZRXja59k6/rm+koReokB9jVaCv1QMFXsC1Y=",
-      "ZI2GWYKhZRXQTb1YytnR1vFtML1OjTQluYaij94xkf4="
+      "ZI2GWYKhZRXQTb1YytnR1vFtML1OjTQluYaij94xkf4=",
     ];
     const filter = array.filter((e) => {
+      console.log(e);
       return e === encrypted;
     });
     document.getElementById("submitBtn").disabled = true;
