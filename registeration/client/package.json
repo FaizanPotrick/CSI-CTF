@@ -1,5 +1,5 @@
 {
-    "name": "registeration",
+    "name": "client",
     "version": "0.1.0",
     "private": true,
     "proxy": "http://localhost:8000/",
@@ -8,11 +8,12 @@
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-router-dom": "^5.2.0",
-        "react-scripts": "4.0.3"
+        "react-scripts": "^5.0.1",
+        "server": "file:.."
     },
     "scripts": {
         "start": "react-scripts start",
-        "build": "react-scripts build",
+        "build": "react-scripts --openssl-legacy-provider build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },

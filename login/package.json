@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "login",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,8 +12,7 @@
     "mongoose": "^6.0.14"
   },
   "scripts": {
-    "start": "node app.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC"
